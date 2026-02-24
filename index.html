@@ -7,14 +7,22 @@
     body { margin: 0; overflow: hidden; }
     canvas { display: block; }
   </style>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
 </head>
 <body>
 
 <script type="module">
-import * as THREE from "https://unpkg.com/three@0.160.0/build/three.module.js";
-import { OrbitControls } from "https://unpkg.com/three@0.160.0/examples/jsm/controls/OrbitControls.js";
-import { OBJLoader } from "https://unpkg.com/three@0.160.0/examples/jsm/loaders/OBJLoader.js";
-import { MTLLoader } from "https://unpkg.com/three@0.160.0/examples/jsm/loaders/MTLLoader.js";
+import * as THREE from "three";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+import { OBJLoader } from "three/addons/loaders/OBJLoader.js";
+import { MTLLoader } from "three/addons/loaders/MTLLoader.js";
 
 // Scene
 const scene = new THREE.Scene();
@@ -48,7 +56,7 @@ controls.enableDamping = true;
 
 // Load MTL + OBJ
 const mtlLoader = new MTLLoader();
-mtlLoader.load("index.mtl", (materials) => {
+mtlLoader.load("material.mtl", (materials) => {
   materials.preload();
 
   const objLoader = new OBJLoader();
