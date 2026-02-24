@@ -48,7 +48,7 @@ controls.enableDamping = true;
 
 // Load MTL + OBJ
 const mtlLoader = new MTLLoader();
-mtlLoader.load("material.mtl", (materials) => {
+mtlLoader.load("index.mtl", (materials) => {
   materials.preload();
 
   const objLoader = new OBJLoader();
